@@ -2,14 +2,12 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "preserve",
+    "baseUrl": ".",
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "types": [
-      "node",
-      "jest"
-    ],
-    "strict": false,
+    "types": ["node", "jest"],
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "resolveJsonModule": true,
@@ -21,9 +19,8 @@
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    "next-env.d.ts"
+    "next-env.d.ts",
+    "../../keystone.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

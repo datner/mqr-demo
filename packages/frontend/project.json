@@ -5,9 +5,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/next:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "root": "packages/frontend",
@@ -30,6 +28,14 @@
         }
       }
     },
+    "keystone": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [{ "command": "yarn keystone dev" }],
+        "cwd": "packages/frontend",
+        "parallel": false
+      }
+    },
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
@@ -38,9 +44,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/packages/frontend"
-      ],
+      "outputs": ["coverage/packages/frontend"],
       "options": {
         "jestConfig": "packages/frontend/jest.config.js",
         "passWithNoTests": true
@@ -48,13 +52,9 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "packages/frontend/**/*.{ts,tsx,js,jsx}"
-        ]
+        "lintFilePatterns": ["packages/frontend/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
